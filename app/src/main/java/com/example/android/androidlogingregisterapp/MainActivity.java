@@ -1,5 +1,6 @@
 package com.example.android.androidlogingregisterapp;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,5 +29,12 @@ public class MainActivity extends AppCompatActivity {
         relativeLayout = findViewById(R.id.relative1);
 
         handler.postDelayed(runnable, 2000);
+    }
+
+    public void handleLogin(View view) {
+    }
+
+    public void handleRegister(View view) {
+        startActivity(new Intent(MainActivity.this, RegisterActivity.class));
     }
 }
