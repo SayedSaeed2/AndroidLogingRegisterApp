@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    android:background="@drawable/grad_bg"
+    tools:context=".activity.HomeActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <Spinner
+        android:id="@+id/countries_list"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bt_bg"
+        android:clickable="true"
+        android:dropDownSelector="@color/white"
+        android:fitsSystemWindows="true"
+        android:focusableInTouchMode="true"
+        android:foregroundGravity="center"
+        android:gravity="center"
+
+        android:popupElevation="5dp"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center"
+
+        android:textDirection="firstStrong" />
+
+
+    <Button
+        android:id="@+id/logout_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@id/countries_list"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bt_bg"
+        android:fontFamily="sans-serif-medium"
+        android:onClick="logout"
+        android:paddingLeft="70dp"
+        android:paddingRight="70dp"
+        android:text="@string/logout_btn"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+</RelativeLayout>

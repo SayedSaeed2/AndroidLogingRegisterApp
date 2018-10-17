@@ -13,5 +13,8 @@
     <!-- Strings related to register page -->
     <string name="register_tv">Register</string>
 
+    <!-- Strings related to home page -->
+    <string name="logout_btn">Logout</string>
+
 
 </resources>

@@ -1,4 +1,4 @@
-package com.example.android.androidlogingregisterapp;
+package com.example.android.androidlogingregisterapp.activity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -10,11 +10,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.android.androidlogingregisterapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * RegisterActivity represents creating new account page if the user doesn't has any before
+ * then store it's data in Firebae
+ */
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText inputEmail, inputPassword, inputCPassword;
@@ -47,7 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
                 if (TextUtils.isEmpty(password) && password.length() < 6) {
-                    Toast.makeText(getApplicationContext(), "Please, enter password and it should be bigger than 6 chars !", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Please, enter password and it should be greater than 6 chars !", Toast.LENGTH_LONG).show();
                     return;
                 }
 
@@ -83,7 +88,12 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
-    public void handleRegisterButton(View view) {
+    /**
+     * Handle login button to go to the login page if he already have account
+     *
+     * @param view
+     */
+    public void handleLoginButton(View view) {
         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
     }
 

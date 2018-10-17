@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/reg_bg"
-    tools:context=".RegisterActivity">
+    tools:context=".activity.RegisterActivity">
 
 
     <RelativeLayout
@@ -151,7 +151,7 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/bt_bg"
             android:fontFamily="sans-serif-medium"
-            android:onClick="handleRegisterButton"
+            android:onClick="handleLoginButton"
             android:paddingLeft="70dp"
             android:paddingRight="70dp"
             android:text="@string/login_btn"

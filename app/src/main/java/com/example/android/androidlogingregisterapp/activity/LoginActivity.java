@@ -1,4 +1,4 @@
-package com.example.android.androidlogingregisterapp;
+package com.example.android.androidlogingregisterapp.activity;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -12,11 +12,16 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.android.androidlogingregisterapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * LoginActivity represents the first page of the application
+ * which allow the user to login or going to register page to create account if he don't have any
+ */
 public class LoginActivity extends AppCompatActivity {
 
 
@@ -41,12 +46,12 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
-        // user already exist
+        // user already exist =====> should go to the Home page directly
         if (auth.getCurrentUser() != null) {
             startActivity(new Intent(LoginActivity.this, HomeActivity.class));
             finish();
         }
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         relativeLayout = findViewById(R.id.relative1);
         handler.postDelayed(runnable, 2000);
@@ -58,6 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         // Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
 
+        // handle login operation
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(LoginActivity.this, "Please, Enter valid Email and Password", Toast.LENGTH_LONG).show();
                                 } else {
+                                    Toast.makeText(LoginActivity.this, "Signed In Successfully!", Toast.LENGTH_LONG).show();
                                     startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                                     finish();
                                 }
@@ -92,7 +99,13 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Handle register button to go to the register page to create new account
+     *
+     * @param view
+     */
     public void handleRegister(View view) {
         startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+        finish();
     }
 }
